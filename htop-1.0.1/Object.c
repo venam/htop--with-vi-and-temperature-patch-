@@ -1,0 +1,51 @@
+/*
+htop - Object.c
+(C) 2004-2011 Hisham H. Muhammad
+Released under the GNU GPL, see the COPYING file
+in the source distribution for its full text.
+*/
+
+#include "Object.h"
+
+#include "CRT.h"
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
+
+/*{
+#include "RichString.h"
+
+#ifndef DEBUG
+#define Object_setClass(obj, class)
+#endif
+
+typedef struct Object_ Object;
+
+typedef void(*Object_Display)(Object*, RichString*);
+typedef int(*Object_Compare)(const void*, const void*);
+typedef void(*Object_Delete)(Object*);
+
+struct Object_ {
+   #ifdef DEBUG
+   char* class;
+   #endif
+   Object_Display display;
+   Object_Delete delete;
+};
+}*/
+
+#ifdef DEBUG
+char* OBJECT_CLASS = "Object";
+
+#else
+#define OBJECT_CLASS NULL
+#endif
+
+#ifdef DEBUG
+
+void Object_setClass(void* this, char* class) {
+   ((Object*)this)->class = class;
+}
+
+#endif
