@@ -21,7 +21,7 @@ int TempMeter_attributes[] ={
 double getProcTempData(void) {
     double temperature;
     char buffer[100];
-    FILE* fp = fopen ("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp", "r");
+    FILE* fp = fopen ("/sys/class/thermal/thermal_zone0/temp", "r");
     size_t bytes_read = fread(buffer, 1, sizeof(buffer), fp);
     fclose(fp);
     if(bytes_read==0 || bytes_read == sizeof(buffer))

@@ -13,7 +13,7 @@ This meter written by Patrick Louis < patrick at unixhub [dot] net >.
 
 int TempMeter_attributes[] ;
 
-double getProcTempData(;
+double getProcTempData(void);
 
 extern MeterType TempMeter;
 

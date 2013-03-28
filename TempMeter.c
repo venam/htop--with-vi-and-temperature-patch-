@@ -18,10 +18,10 @@ int TempMeter_attributes[] ={
    TEMPERATURE
 };
 
-double getProcTempData(){
+double getProcTempData(void) {
     double temperature;
-
-    FILE* fp = fopen ("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp", "r");
+    char buffer[100];
+    FILE* fp = fopen ("/sys/class/thermal/thermal_zone0/temp", "r");
     size_t bytes_read = fread(buffer, 1, sizeof(buffer), fp);
     fclose(fp);
     if(bytes_read==0 || bytes_read == sizeof(buffer))
@@ -34,13 +34,13 @@ double getProcTempData(){
 static void TempMeter_setValues(Meter * this, char *buffer, int len){
 
     double temperature = getProcTempData();
-    this->values[0] = percent;
+    this->values[0] = temperature;
 
     const char *Text;
     if (this->mode == TEXT_METERMODE) {
-      Text = "%.1f% degree C";
+      Text = "%.2f degree C";
     } else {
-      Text = "%.1f%C";
+      Text = "( %.2f C )";
     }
 
     snprintf(buffer, len, Text, temperature);

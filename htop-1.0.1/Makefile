@@ -147,21 +147,21 @@ AUTOCONF = ${SHELL} /home/raptor/htop-vi-temp/htop-1.0.1/missing --run autoconf
 AUTOHEADER = ${SHELL} /home/raptor/htop-vi-temp/htop-1.0.1/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/raptor/htop-vi-temp/htop-1.0.1/missing --run automake-1.11
 AWK = gawk
-CC = gcc
+CC = clang
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2
+CFLAGS = -g -s -O3
 CPP = gcc -E
-CPPFLAGS = 
+CPPFLAGS =
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
-DSYMUTIL = 
-DUMPBIN = 
-ECHO_C = 
+DSYMUTIL =
+DUMPBIN =
+ECHO_C =
 ECHO_N = -n
-ECHO_T = 
+ECHO_T =
 EGREP = /usr/bin/grep -E
-EXEEXT = 
+EXEEXT =
 FGREP = /usr/bin/grep -F
 GREP = /usr/bin/grep
 INSTALL = /usr/bin/install -c
@@ -170,32 +170,32 @@ INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LD = /usr/bin/ld
-LDFLAGS = 
-LIBOBJS = 
-LIBS = -lncursesw -lm 
+LDFLAGS =
+LIBOBJS =
+LIBS = -lncursesw -lm
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
-LIPO = 
+LIPO =
 LN_S = ln -s
-LTLIBOBJS = 
+LTLIBOBJS =
 MAKEINFO = ${SHELL} /home/raptor/htop-vi-temp/htop-1.0.1/missing --run makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 NM = /usr/bin/nm -B
-NMEDIT = 
+NMEDIT =
 OBJDUMP = objdump
 OBJEXT = o
-OTOOL = 
-OTOOL64 = 
+OTOOL =
+OTOOL64 =
 PACKAGE = htop
 PACKAGE_BUGREPORT = loderunner@users.sourceforge.net
 PACKAGE_NAME = htop
 PACKAGE_STRING = htop 1.0.1
 PACKAGE_TARNAME = htop
-PACKAGE_URL = 
+PACKAGE_URL =
 PACKAGE_VERSION = 1.0.1
 PATH_SEPARATOR = :
 RANLIB = ranlib
 SED = /usr/bin/sed
-SET_MAKE = 
+SET_MAKE =
 SHELL = /bin/sh
 STRIP = strip
 VERSION = 1.0.1
@@ -204,15 +204,15 @@ abs_srcdir = /home/raptor/htop-vi-temp/htop-1.0.1
 abs_top_builddir = /home/raptor/htop-vi-temp/htop-1.0.1
 abs_top_srcdir = /home/raptor/htop-vi-temp/htop-1.0.1
 ac_ct_CC = gcc
-ac_ct_DUMPBIN = 
+ac_ct_DUMPBIN =
 am__include = include
 am__leading_dot = .
-am__quote = 
+am__quote =
 am__tar = ${AMTAR} chof - "$$tardir"
 am__untar = ${AMTAR} xf -
 bindir = ${exec_prefix}/bin
 build = i686-pc-linux-gnu
-build_alias = 
+build_alias =
 build_cpu = i686
 build_os = linux-gnu
 build_vendor = pc
@@ -223,7 +223,7 @@ docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
 host = i686-pc-linux-gnu
-host_alias = 
+host_alias =
 host_cpu = i686
 host_os = linux-gnu
 host_vendor = pc
@@ -247,11 +247,11 @@ sharedstatedir = ${prefix}/com
 srcdir = .
 sysconfdir = ${prefix}/etc
 target = i686-pc-linux-gnu
-target_alias = 
+target_alias =
 target_cpu = i686
 target_os = linux-gnu
 target_vendor = pc
-top_build_prefix = 
+top_build_prefix =
 top_builddir = .
 top_srcdir = .
 ACLOCAL_AMFLAGS = -I m4
@@ -335,7 +335,7 @@ config.h: stamp-h1
 stamp-h1: $(srcdir)/config.h.in $(top_builddir)/config.status
 	@rm -f stamp-h1
 	cd $(top_builddir) && $(SHELL) ./config.status config.h
-$(srcdir)/config.h.in:  $(am__configure_deps) 
+$(srcdir)/config.h.in:  $(am__configure_deps)
 	($(am__cd) $(top_srcdir) && $(AUTOHEADER))
 	rm -f stamp-h1
 	touch $@
@@ -387,7 +387,7 @@ clean-binPROGRAMS:
 	list=`for p in $$list; do echo "$$p"; done | sed 's/$(EXEEXT)$$//'`; \
 	echo " rm -f" $$list; \
 	rm -f $$list
-htop$(EXEEXT): $(htop_OBJECTS) $(htop_DEPENDENCIES) 
+htop$(EXEEXT): $(htop_OBJECTS) $(htop_DEPENDENCIES)
 	@rm -f htop$(EXEEXT)
 	$(htop_LINK) $(htop_OBJECTS) $(htop_LDADD) $(LIBS)
 
